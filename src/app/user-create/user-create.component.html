@@ -1,0 +1,36 @@
+<div class="d-sm-flex align-items-center justify-content-between-mb4">
+  <h1 class="h3 mb-0 text-gray-800">User Create</h1>
+</div>
+<div class="container">
+  <form [formGroup]="userForm" (ngSubmit)="submitForm()">
+    <div class="row">
+      <div class="col-lg-6 mt-3">
+        <label for="">Name :</label>
+        <input type="text" class="form-control form-error" formControlName="username" [ngClass]="{'form-error':userForm.get('username').touched && userForm.get('username').invalid}">
+      </div>
+      <div class="col-lg-6 mt-3">
+        <label for="">Age :</label>
+        <input type="number" class="form-control" formControlName="userprice" [ngClass]="{'form-error':userForm.get('userprice').touched && userForm.get('userprice').invalid}">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-6 mt-3">
+        <label for="">Birth year :</label>
+        <input type="number" class="form-control" formControlName="discount" [ngClass]="{'form-error':userForm.get('discount').touched && userForm.get('discount').invalid}">
+      </div>
+      <div class="col-lg-6 mt-3">
+        <label for="">Gender :</label>
+        <select name="" id="" class="form-control" formControlName="type" [ngClass]="{'form-error':userForm.get('type').touched && userForm.get('type').invalid}">
+          <option >Male</option>
+          <option >Female</option>
+        </select>
+      </div>
+      <div class="row form-group">
+        <div class="col-lg-6 mt-3">
+          <input type="submit" [disabled]="!userForm.valid"  class="btn btn-primary" value="submit">
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+<br>

@@ -1,0 +1,26 @@
+<br>
+<h1>Product List</h1><button type="button" class="btn btn-outline-success" routerLink="/productCreate" style="margin-left: 60rem;">Create New Product</button>
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Poduct Name</th>
+        <th scope="col">Price</th>
+        <th scope="col">Discount</th>
+        <th scope="col">Type</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor = "let product of productList">
+        <th scope="row">◉</th>
+        <td>{{product.productname}}</td>
+        <td>{{product.productprice}}</td>
+        <td>{{product.discount}}</td>
+        <td>{{product.type}}</td>
+        <td><button type="button" class="btn btn-info" [routerLink]="['/productEdit',product.id]">Edit</button>
+          <button type="button" class="btn btn-info" style="margin-left: 10px;" [routerLink]="['/productView',product.id]">View</button>
+          <button type="button" class="btn btn-danger" style="margin-left: 10px;" (click)="deleteRow(product)">Delete</button>&nbsp;
+      </tr>
+    </tbody>
+  </table>
