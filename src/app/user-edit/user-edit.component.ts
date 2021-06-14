@@ -13,24 +13,32 @@ export class userEditComponent implements OnInit {
   fb:FormBuilder = new FormBuilder;
   userForm:any;
   currentId:any;
+  currentuserData:any;
   constructor(private activeRoute:ActivatedRoute , private userService:userService , private route:Router) { 
     this.currentId = activeRoute.snapshot.params.id;
   }
-
   ngOnInit(): void {
-    let currentuserData = this.userService.returnuserById(this.currentId)
     this.userForm = this.fb.group({
       "username" : this.fb.control("",Validators.required),
       "userprice" : this.fb.control(0,Validators.required),
       "discount" : this.fb.control(0,Validators.required),
       "type":this.fb.control("")
     })
-
-    this.userForm.patchValue(currentuserData)
+    this.userService.returnuserById(this.currentId).subscribe((res)=>{
+      this.currentuserData =res
+      this.userForm.patchValue(this.currentuserData)
+    })
+    
   }
   updateForm(){
-    this.userService.updateuserById(this.currentId,this.userForm.value);
-    this.route.navigate(["/user"]);
+    this.userService.updateuserById(this.currentId,this.userForm.value).subscribe(()=>{
+      this.route.navigate(["/user"]);
+    })
+    
   }
 
+}
+
+function currentuserData(currentuserData: any) {
+  throw new Error('Function not implemented.');
 }

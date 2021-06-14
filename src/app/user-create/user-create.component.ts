@@ -18,14 +18,15 @@ export class userCreateComponent implements OnInit {
   ngOnInit(): void {
     this.userForm = this.fb.group({
       "username" : this.fb.control("",Validators.required),
-      "userprice" : this.fb.control(0,Validators.required),
-      "discount" : this.fb.control(0,Validators.required),
+      "userprice" : this.fb.control(Validators.required),
+      "discount" : this.fb.control(Validators.required),
       "type":this.fb.control("")
     })
   }
   submitForm(){
-    this.userService.adduser(this.userForm.value);
-    this.route.navigate(["/user"])
+    this.userService.adduser(this.userForm.value).subscribe((res)=>{
+      this.route.navigate(["/user"]);
+  })
   }
 
 }

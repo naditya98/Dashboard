@@ -1,4 +1,6 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+
 
 @Injectable({
   providedIn: 'root'
@@ -6,24 +8,24 @@ import { Injectable } from '@angular/core';
 export class ProductService {
 
   productData : Array<any> =[];
-  constructor() { }
+  constructor(private http:HttpClient) {}
 
   addProduct(data:any){
-    data.id= this.productData.length+1;
-    this.productData.push(data);
+    return this.http.post(`https://60c770c3afc88600179f51dc.mockapi.io/aplha`,data)
   }
 
   returnProduct(){
-    return this.productData;
+    return this.http.get(`https://60c770c3afc88600179f51dc.mockapi.io/aplha`)
   }
 
   returnProductById(id:number){
-    return this.productData.find(p => p.id == id);
+    return this.http.get(`https://60c770c3afc88600179f51dc.mockapi.io/aplha/${id}`)
   }
 
   updateProductById(id:any,data:any){
-    let index = this.productData.findIndex(p =>p.id == id);
-    data.id=id;
-    this.productData[index] = data ;
+    return this.http.put(`https://60c770c3afc88600179f51dc.mockapi.io/aplha/${id}`,data)
+  }
+  deletById(id: any){
+    return this.http.delete(`https://60c770c3afc88600179f51dc.mockapi.io/aplha/${id}`)
   }
 }

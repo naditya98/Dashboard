@@ -11,11 +11,16 @@ export class ProductComponent implements OnInit {
   constructor(private productService:ProductService) { }
 
   ngOnInit(): void {
-    this.productList = this.productService.returnProduct();
+    this.loadProduct()
   }
-  deleteRow(product:any){
-    const index = this.productList.indexOf(product);
-    this.productList.splice(index, 1);
+  loadProduct(){
+    this.productService.returnProduct().subscribe((res:any)=>{
+      this.productList=res
+    });
+  }
+  deletprod(id:any){
+    this.productService.deletById(id).subscribe(() =>{
+      this.loadProduct()
+    });
 }
-
 }

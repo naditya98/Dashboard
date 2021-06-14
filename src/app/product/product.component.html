@@ -1,6 +1,6 @@
 <br>
-<h1>Product List</h1><button type="button" class="btn btn-outline-success" routerLink="/productCreate" style="margin-left: 60rem;">Create New Product</button>
-<table class="table">
+<h1>Product List</h1><button type="button" class="btn btn-outline-success" routerLink="/productCreate" style="margin-left: 65vw;">Create New Product</button>
+<table class="table" style="margin-top: 10px; background-color: aqua;">
     <thead>
       <tr>
         <th scope="col">#</th>
@@ -20,7 +20,7 @@
         <td>{{product.type}}</td>
         <td><button type="button" class="btn btn-info" [routerLink]="['/productEdit',product.id]">Edit</button>
           <button type="button" class="btn btn-info" style="margin-left: 10px;" [routerLink]="['/productView',product.id]">View</button>
-          <button type="button" class="btn btn-danger" style="margin-left: 10px;" (click)="deleteRow(product)">Delete</button>&nbsp;
+          <button type="button" class="btn btn-danger" style="margin-left: 10px;" (click)="deletprod(product.id)">Delete</button>&nbsp;
       </tr>
     </tbody>
   </table>

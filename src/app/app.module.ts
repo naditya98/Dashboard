@@ -18,6 +18,9 @@ import { ProductComponent } from './product/product.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { userComponent } from './user/user.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+import { LayoutComponent } from './layout/layout.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +38,9 @@ import { userComponent } from './user/user.component';
     userEditComponent,
     ProductComponent,
     ChartComponent,
+    LoginComponent,
+    RegisterComponent,
+    LayoutComponent,
   ],
   imports: [
     BrowserModule,
