@@ -32,7 +32,7 @@ export class userEditComponent implements OnInit {
   }
   updateForm(){
     this.userService.updateuserById(this.currentId,this.userForm.value).subscribe(()=>{
-      this.route.navigate(["/user"]);
+      this.route.navigate(["dashboard/user"]);
     })
     
   }

@@ -1,5 +1,5 @@
 <br>
-<h1>User List</h1><button type="button" class="btn btn-outline-success" routerLink="/userCreate" style="margin-left: 65vw;">Create New user</button>
+<h1>User List</h1><button type="button" class="btn btn-outline-success" routerLink="../userCreate" style="margin-left: 65vw;">Create New user</button>
 <table class="table" style="margin-top: 10px; background-color: aqua;">
     <thead>
       <tr>
@@ -18,8 +18,8 @@
         <td>{{user.userprice}}</td>
         <td>{{user.discount}}</td>
         <td>{{user.type}}</td>
-        <td><button type="button" class="btn btn-info" [routerLink]="['/userEdit',user.id]">Edit</button>
-          <button type="button" class="btn btn-info" style="margin-left: 10px;" [routerLink]="['/userView',user.id]">View</button>
+        <td><button type="button" class="btn btn-info" [routerLink]="['../userEdit',user.id]">Edit</button>
+          <button type="button" class="btn btn-info" style="margin-left: 10px;" [routerLink]="['../userView',user.id]">View</button>
           <button type="button" class="btn btn-danger" style="margin-left: 10px;" (click)="deletuser(user.id)">Delete</button>&nbsp;
       </tr>
     </tbody>

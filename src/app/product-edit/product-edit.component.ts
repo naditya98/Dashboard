@@ -32,7 +32,7 @@ export class ProductEditComponent implements OnInit {
   }
   updateForm(){
     this.productService.updateProductById(this.currentId,this.productForm.value).subscribe(()=>{
-      this.route.navigate(["/product"]);
+      this.route.navigate(["dashboard/product"]);
     })
     
   }

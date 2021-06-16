@@ -8,7 +8,7 @@
  <div class="main">
     <div class="col-md-6 col-sm-12">
        <div class="login-form">
-          <form>
+          <form (submit)="login()">
              <div class="form-group">
                 <label>User Name :</label>
                 <input type="text" class="form-control" placeholder="User Name">
@@ -17,7 +17,7 @@
                 <label>Password :</label>
                 <input type="password" class="form-control" placeholder="Password">
              </div>
-             <button type="submit" style="margin-right: 10px;" class="btn btn-black" routerLink="/dashboard" (click)="onLoggedin()" >Login</button>
+             <button type="submit" style="margin-right: 10px;" class="btn btn-black">Login</button>
              <button type="submit" class="btn btn-info" style="margin-left: 135px;" routerLink="/register">Create an account<span style="font-weight: bolder;"> →</span></button>
           </form>
        </div>

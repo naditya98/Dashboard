@@ -7,11 +7,12 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  constructor(public router: Router) {}
+  constructor(public route: Router) {}
 
   ngOnInit() {}
 
-  onLoggedin() {
-      localStorage.setItem('isLoggedin', 'true');
+  login(){
+    window.localStorage.setItem("authtoken","123");
+    this.route.navigate(['dashboard']);
   }
 }
